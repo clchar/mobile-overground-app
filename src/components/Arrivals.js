@@ -48,7 +48,6 @@ export class Arrivals extends React.Component {
   };
 
   render() {
-    const destinationName = "Stratford (London) Rail Station";
     const { data, refreshing } = this.state;
     const dataSorted = data.sort(
       (a, b) => parseISO(a.expectedArrival) - parseISO(b.expectedArrival)
@@ -64,6 +63,9 @@ export class Arrivals extends React.Component {
           {dataSorted.map((el, i) => {
             const time = parseISO(el.expectedArrival);
             const timeFormatted = formatDistanceToNow(time);
+            const destinationName =
+              el.destinationName.includes("Stratford") && el.destinationName;
+
             return (
               el.destinationName === destinationName && (
                 <View key={i}>
