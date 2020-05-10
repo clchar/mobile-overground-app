@@ -16,12 +16,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  // scrollView: {
-  //   flex: 1,
-  //   backgroundColor: "pink",
-  //   alignItems: "center",
-  //   justifyContent: "center"
-  // },
   text: {
     fontSize: 20
   }
@@ -50,8 +44,6 @@ export class Arrivals extends React.Component {
       `https://api.tfl.gov.uk/StopPoint/${stationId}/arrivals`
     );
     const data = res.data;
-    console.log(data);
-
     this.setState({ data: data, refreshing: false });
   };
 
